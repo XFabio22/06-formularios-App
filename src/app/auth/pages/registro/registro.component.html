@@ -5,16 +5,20 @@
 
 <div class="row">
     <div class="col">
-        <form autocomplete="off">
+        <form autocomplete="off" [formGroup]="miFormulario">
 
             <div class="row mb-3">
                 <label for="" class="col-sm-3 col-form-label">Nombre</label>
 
                 <div class="col-sm-9">
-                    <input type="text" class="form-control"
-                    placeholder="Nombre del usuario">
+                    <input 
+                    type="text"
+                     class="form-control"
+                    placeholder="Nombre del usuario"
+                    formControlName="nombre"
+                    >
                 </div>
-                <span class="form-text text-danger"> 
+                <span class="form-text text-danger" *ngIf="campoNoValido('nombre')"> 
                     Debe de ser en formato de nombre y apellido 
                 </span>
 
@@ -24,8 +28,11 @@
                 <label for="" class="col-sm-3 col-form-label">Email</label>
 
                 <div class="col-sm-9">
-                    <input type="text" class="form-control"
-                    placeholder="Email del usuario">
+                    <input 
+                    type="text" 
+                    class="form-control"
+                    placeholder="Email del usuario"
+                    >
                 </div>
             </div>
 
@@ -33,8 +40,12 @@
                 <label for="" class="col-sm-3 col-form-label">Username</label>
 
                 <div class="col-sm-9">
-                    <input type="text" class="form-control"
-                    placeholder="Nombre codigo del usuario">
+                    <input 
+                    type="text"
+                     class="form-control"
+                    placeholder="Nombre codigo del usuario"
+
+                    >
                 </div>
             
             </div>
@@ -43,8 +54,11 @@
                 <label for="" class="col-sm-3 col-form-label">password</label>
 
                 <div class="col-sm-9">
-                    <input type="password" class="form-control"
-                    placeholder="password del usuario">
+                    <input 
+                    type="password" 
+                    class="form-control"
+                    placeholder="password del usuario"
+                    >
                 </div>
             
             </div>
@@ -53,8 +67,11 @@
                 <label for="" class="col-sm-3 col-form-label">Confirmar</label>
 
                 <div class="col-sm-9">
-                    <input type="password" class="form-control"
-                    placeholder="confirmar la password del usuario">
+                    <input 
+                    type="password" 
+                    class="form-control"
+                    placeholder="confirmar la password del usuario"
+                    >
                 </div>
             
             </div>
@@ -63,9 +80,15 @@
 
             <div class="row">
                 <div class="col">
-                    <button class="btn btn-primary float-end">Crear</button>
+                    <button
+                     class="btn btn-primary float-end"
+                     type="submit" 
+                    (click)="submitFormulario()">Crear</button>
                 </div>
             </div>
         </form>
     </div>
 </div>
+
+
+<h2>Form Valid :  {{miFormulario.valid}} </h2>
